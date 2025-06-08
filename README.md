@@ -1,5 +1,26 @@
-Tentativo di creare un interfaccia web che faccia Automatic Speech Recognition in real-time usando speechmatics (API qui: https://github.com/speechmatics/speechmatics-python).
+# Demo ASR con Speechmatics
 
-Sarebbe utile avere una pagina di amministrazione dove io accendo la registrazione e vedo la trascrizione in tempo reale.
+Questo progetto dimostra come realizzare una piccola interfaccia web per la trascrizione automatica in tempo reale utilizzando la libreria [speechmatics-python](https://github.com/speechmatics/speechmatics-python).
 
-Ma ci deve essere anche una pagina per i visitatori dove tutti loro possono solo vedere quanto viene trascritto in tempo reale
+Sono previste due pagine:
+
+* **/admin** – pagina di amministrazione da cui avviare la registrazione e vedere la trascrizione.
+* **/view** – pagina pubblica in sola lettura dove i visitatori possono seguire la trascrizione in tempo reale.
+
+Il codice è un esempio semplificato: la funzione di avvio della registrazione (`start_recognition`) va collegata alla reale API di Speechmatics e alla cattura dell'audio dal microfono.
+
+## Avvio dell'applicazione
+
+1. Installare le dipendenze Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Impostare le credenziali Speechmatics (ad esempio tramite variabili d'ambiente) e avviare il server:
+
+```bash
+python app.py
+```
+
+L'applicazione sarà disponibile su `http://localhost:5000`. Aprire `/admin` per controllare la registrazione e `/view` per i visitatori.

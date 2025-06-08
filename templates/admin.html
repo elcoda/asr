@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - ASR</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Admin Control</h1>
+    <button id="start">Start Recognition</button>
+    <div id="transcript"></div>
+    <script>
+        var socket = io();
+        $('#start').click(function() {
+            socket.emit('start_recognition');
+        });
+        socket.on('transcript', function(line) {
+            $('#transcript').append('<p>' + line + '</p>');
+        });
+    </script>
+</body>
+</html>
