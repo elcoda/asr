@@ -30,5 +30,11 @@ def admin():
 def view():
     return render_template('view.html')
 
+
+@app.route('/')
+def index():
+    """Landing page with waveform demo."""
+    return render_template('index.html')
+
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5050)
